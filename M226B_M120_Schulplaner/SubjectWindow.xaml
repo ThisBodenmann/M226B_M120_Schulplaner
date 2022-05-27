@@ -1,4 +1,4 @@
-﻿<Window x:Class="M226B_M120_Schulplaner.HomeworkWindow"
+﻿<Window x:Class="M226B_M120_Schulplaner.SubjectWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
 
         <Label FontSize="35" HorizontalAlignment="Center">
-            Hausaufgaben
+            Fächer
         </Label>
 
         <Grid Grid.Row="1">
@@ -22,8 +22,8 @@
                 <ColumnDefinition Width="50*"/>
                 <ColumnDefinition Width="50*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0">Hausaufgaben</Button>
-            <Button Grid.Column="1" Click="changeWindowSubjects">Fächer</Button>
+            <Button Grid.Column="0" Click="changeWindowHomework">Hausaufgaben</Button>
+            <Button Grid.Column="1">Fächer</Button>
         </Grid>
 
         <Grid Grid.Row="3" Grid.ColumnSpan="2">
@@ -40,8 +40,10 @@
                     <ColumnDefinition Width="20*"/>
                     <ColumnDefinition Width="5*"/>
                     <ColumnDefinition Width="20*"/>
-                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="5*"/>
                     <ColumnDefinition Width="15*"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="10*"/>
                     <ColumnDefinition Width="5*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
@@ -56,15 +58,19 @@
                     <ComboBoxItem>FR</ComboBoxItem>
                     <ComboBoxItem>EN</ComboBoxItem>
                 </ComboBox>
-                <Label Grid.Row="1" Grid.Column="3">Aufgabe</Label>
+                <Label Grid.Row="1" Grid.Column="3">Thema</Label>
                 <TextBox Grid.Row="2" Grid.Column="3">
                     Buch S.123 Nr. 2-5
                 </TextBox>
-                <Label Grid.Row="1" Grid.Column="5">Fälligkeitsdatum</Label>
+                <Label Grid.Row="1" Grid.Column="5">Datum</Label>
                 <TextBox Grid.Row="2" Grid.Column="5">
                     01.01.2022
                 </TextBox>
-                <Button Grid.Row="2" Grid.Column="7">
+                <Label Grid.Row="1" Grid.Column="7">Note</Label>
+                <TextBox Grid.Row="2" Grid.Column="7">
+                    5.1
+                </TextBox>
+                <Button Grid.Row="2" Grid.Column="9">
                     Hinzufügen
                 </Button>
             </Grid>
@@ -75,7 +81,7 @@
                     <ColumnDefinition Width="5*"/>
                 </Grid.ColumnDefinitions>
                 <DataGrid Grid.Column="1">
-                    
+
                 </DataGrid>
             </Grid>
         </Grid>
