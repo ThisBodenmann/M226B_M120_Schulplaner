@@ -10,19 +10,22 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace M226B_M120_Schulplaner
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaktionslogik für HomeworkWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class HomeworkWindow : Window
     {
-        public MainWindow()
+        public HomeworkWindow()
         {
             InitializeComponent();
+        }
+        void changeWindowSubjects(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("LUL KEKW");
         }
     }
 }
