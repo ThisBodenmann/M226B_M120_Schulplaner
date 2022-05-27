@@ -15,18 +15,19 @@ using System.Windows.Shapes;
 namespace M226B_M120_Schulplaner
 {
     /// <summary>
-    /// Interaktionslogik für HomeworkWindow.xaml
+    /// Interaktionslogik für SubjectWindow.xaml
     /// </summary>
-    public partial class HomeworkWindow : Window
+    public partial class SubjectWindow : Window
     {
-        public HomeworkWindow()
+        public SubjectWindow()
         {
             InitializeComponent();
         }
-        void changeWindowSubjects(object sender, RoutedEventArgs e)
+
+        private void changeWindowHomework(object sender, RoutedEventArgs e)
         {
-            SubjectWindow subjectWindow = new SubjectWindow();
-            subjectWindow.Show();
+            HomeworkWindow homeworkWindow = new HomeworkWindow();
+            homeworkWindow.Show();
             this.Close();
         }
     }
