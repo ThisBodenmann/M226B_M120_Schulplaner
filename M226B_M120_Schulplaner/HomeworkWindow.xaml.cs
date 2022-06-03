@@ -20,6 +20,7 @@ namespace M226B_M120_Schulplaner
     /// </summary>
     public partial class HomeworkWindow : Window
     {
+        List<HomeWork> homeWorkList = new List<HomeWork>();
         public HomeworkWindow()
         {
             InitializeComponent();
@@ -58,20 +59,21 @@ namespace M226B_M120_Schulplaner
                 set { done = value; }
             }
         }
-        public ObservableCollection<HomeWork> HomeWorkList
+        /*public List<HomeWork> HomeWorkList
         {
-            get { return HomeWorkList;}
+            get { return HomeWorkList; }
             set { HomeWorkList = value; }
-        }
+        }*/
 
         private void HomeWorkAdd_Click(object sender, RoutedEventArgs e)
         {
             HomeWork work = new HomeWork();
-            work.Subject = HomeWorkComboBox.SelectedValue.ToString()!;
+            work.Subject = HomeWorkComboBox.Text;
             work.Task = HomeWorkTaskBox.Text;
             work.Date = Convert.ToDateTime(HomeWorkDateBox.Text);
             work.Done = false;
-            homeWork.Add(work);
+            homeWorkList.Add(work);
+            HomeWorkDataGrid.ItemsSource = homeWorkList;
         }
     }
 }

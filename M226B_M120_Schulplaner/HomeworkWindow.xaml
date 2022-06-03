@@ -74,7 +74,7 @@
                     <ColumnDefinition Width="90*"/>
                     <ColumnDefinition Width="5*"/>
                 </Grid.ColumnDefinitions>
-                <DataGrid Grid.Column="1" Name="HomeWorkDataGrid" ItemsSource="{Binding AddressCollection}"  AutoGenerateColumns="False">
+                <DataGrid Grid.Column="1" Name="HomeWorkDataGrid" ItemsSource="{Binding HomeWorkList}"  AutoGenerateColumns="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Width="20*" Header="Fach" Binding="{Binding Subject}"/>
                         <DataGridTextColumn Width="50*" Header="Aufgabe" Binding="{Binding Task}"/>
