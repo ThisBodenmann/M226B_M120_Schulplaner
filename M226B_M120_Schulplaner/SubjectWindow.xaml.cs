@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace M226B_M120_Schulplaner
     /// </summary>
     public partial class SubjectWindow : Window
     {
+        ObservableCollection<SubjectClass> SubjectList = new ObservableCollection<SubjectClass>();
         public SubjectWindow()
         {
             InitializeComponent();
@@ -29,6 +31,54 @@ namespace M226B_M120_Schulplaner
             HomeworkWindow homeworkWindow = new HomeworkWindow();
             homeworkWindow.Show();
             this.Close();
+        }
+
+        public class SubjectClass
+        {
+            string subject;
+            string theme;
+            DateTime date;
+            string grade;
+            public string Subject
+            {
+                get { return subject; }
+                set { subject = value; }
+            }
+            public string Theme
+            {
+                get { return theme; }
+                set { theme = value; }
+            }
+            public DateTime Date
+            {
+                get { return date; }
+                set { date = value; }
+            }
+            public string Grade
+            {
+                get { return grade; }
+                set { 
+                    if (int.TryParse(value.ToString(), out int n))
+                    {
+                        grade = value;
+                    } else
+                    {
+                        MessageBox.Show("Bitte geben Sie einen gültigen Notenwert an!");
+                    }
+                }
+            }
+        }
+
+        private void SubjectAdd_Click(object sender, RoutedEventArgs e)
+        {
+            SubjectClass work = new SubjectClass();
+            work.Subject = SubjectComboBox.Text;
+            work.Theme = ThemeTextBox.Text;
+            work.Date = Convert.ToDateTime(DateTextBox.Text);
+            work.Grade = GradeTextBox.Text;
+            SubjectList.Add(work);
+            this.SubjectDataGrid.ItemsSource = null;
+            this.SubjectDataGrid.ItemsSource = SubjectList;
         }
     }
 }

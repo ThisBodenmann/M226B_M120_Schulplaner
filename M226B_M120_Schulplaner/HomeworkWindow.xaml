@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:M226B_M120_Schulplaner"
         mc:Ignorable="d"
-        Title="Schulplaner" Height="450" Width="800">
+        Title="Schulplaner" Height="450" Width="800" MinHeight="450" MinWidth="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="15*"/>
@@ -74,7 +74,7 @@
                     <ColumnDefinition Width="90*"/>
                     <ColumnDefinition Width="5*"/>
                 </Grid.ColumnDefinitions>
-                <DataGrid Grid.Column="1" Name="HomeWorkDataGrid" ItemsSource="{Binding HomeWorkList}"  AutoGenerateColumns="False">
+                <DataGrid Grid.Column="1" Name="HomeWorkDataGrid" IsReadOnly="True" ItemsSource="{Binding }" AutoGenerateColumns="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Width="20*" Header="Fach" Binding="{Binding Subject}"/>
                         <DataGridTextColumn Width="50*" Header="Aufgabe" Binding="{Binding Task}"/>

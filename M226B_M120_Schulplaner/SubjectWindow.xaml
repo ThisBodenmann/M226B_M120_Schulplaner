@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:M226B_M120_Schulplaner"
         mc:Ignorable="d"
-        Title="Schulplaner" Height="450" Width="800">
+        Title="Schulplaner" Height="450" Width="800" MinHeight="450" MinWidth="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="15*"/>
@@ -53,21 +53,21 @@
                     <RowDefinition Height="28*"/>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="1" Grid.Column="1">Fach</Label>
-                <ComboBox Grid.Row="2" Grid.Column="1">
+                <ComboBox Grid.Row="2" Grid.Column="1" Name="SubjectComboBox">
                     <ComboBoxItem IsSelected="True">DE</ComboBoxItem>
                     <ComboBoxItem>FR</ComboBoxItem>
                     <ComboBoxItem>EN</ComboBoxItem>
                 </ComboBox>
                 <Label Grid.Row="1" Grid.Column="3">Thema</Label>
-                <TextBox Grid.Row="2" Grid.Column="3">
+                <TextBox Grid.Row="2" Grid.Column="3" Name="ThemeTextBox">
                     Buch S.123 Nr. 2-5
                 </TextBox>
                 <Label Grid.Row="1" Grid.Column="5">Datum</Label>
-                <TextBox Grid.Row="2" Grid.Column="5">
+                <TextBox Grid.Row="2" Grid.Column="5" Name="DateTextBox">
                     01.01.2022
                 </TextBox>
                 <Label Grid.Row="1" Grid.Column="7">Note</Label>
-                <TextBox Grid.Row="2" Grid.Column="7">
+                <TextBox Grid.Row="2" Grid.Column="7" Name="GradeTextBox">
                     5.1
                 </TextBox>
                 <Button Grid.Row="2" Grid.Column="9">
@@ -80,8 +80,13 @@
                     <ColumnDefinition Width="90*"/>
                     <ColumnDefinition Width="5*"/>
                 </Grid.ColumnDefinitions>
-                <DataGrid Grid.Column="1">
-
+                <DataGrid Grid.Column="1" Name="SubjectDataGrid" IsReadOnly="True" ItemsSource="{Binding }" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="20*" Header="Fach" Binding="{Binding Subject}"/>
+                        <DataGridTextColumn Width="50*" Header="Thema" Binding="{Binding Theme}"/>
+                        <DataGridTextColumn Width="20*" Header="Datum" Binding="{Binding Date}"/>
+                        <DataGridTextColumn Width="10*" Header="Note" Binding="{Binding Grade}"/>
+                    </DataGrid.Columns>
                 </DataGrid>
             </Grid>
         </Grid>
