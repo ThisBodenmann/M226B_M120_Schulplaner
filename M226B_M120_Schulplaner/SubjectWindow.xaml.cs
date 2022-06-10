@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -58,7 +59,10 @@ namespace M226B_M120_Schulplaner
             {
                 get { return grade; }
                 set { 
-                    if (int.TryParse(value.ToString(), out int n))
+                    if (int.TryParse(value, out int n))
+                    {
+                        grade = value;
+                    } else if (value.Contains(",") || value.Contains("."))
                     {
                         grade = value;
                     } else
@@ -79,6 +83,16 @@ namespace M226B_M120_Schulplaner
             SubjectList.Add(work);
             this.SubjectDataGrid.ItemsSource = null;
             this.SubjectDataGrid.ItemsSource = SubjectList;
+        }
+
+        private new void PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !IsTextAllowed(e.Text);
+        }
+        private static readonly Regex _regex = new Regex("^[0-9,.]*$");
+        private static bool IsTextAllowed(string text)
+        {
+            return _regex.IsMatch(text);
         }
     }
 }
