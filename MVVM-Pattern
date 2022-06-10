@@ -1,0 +1,19 @@
+MVVM Pattern
+************
+
+Weil wir MVP bereits im ÜK angewendet haben, wollten wir mal etwas neues testen. Deshalb haben wir uns für das MVVM Pattern entschieden.
+
+Folgendes Tutorial haben wir dafür benutzt: https://www.c-sharpcorner.com/UploadFile/raj1979/simple-mvvm-pattern-in-wpf/
+
+Gute Punkte: 
++ Es gibt einen Chat -> hier können Fragen oder Feedback gesendet werden.
++ Es gibt einen Code Ausschnitt -> Dient gut als Anleitung und macht es verständlicher.
++ Es gibt Bilder -> Somit kann man den Schritten besser folgen und sie besser überprüfen.
++ Es gibt eine Suchleiste -> Hier kann man einfach nach Themen suchen. 
+
+Schlechte Punkte: 
+- Es gibt kein Video -> dies wäre nützlich, damit man allen Schritten genau folgen kann. Ebenfalls hätte man ein wenig mehr Info. 
+- Es ist auf Englisch -> Es gibt Wörter, welche eher schwierig sind zu verstehen. 
+
+Aber im ganzen finde ich das Tutorial ziemlich gut. Es ist sehr einfach den Schritten zu folgen und es wird vom absoluten Anfang beschrieben (Getting Started).
+View, Model und Viewmodel werden einzeln kurz erklärt. 
