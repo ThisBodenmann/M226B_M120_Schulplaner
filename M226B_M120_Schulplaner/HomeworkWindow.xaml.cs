@@ -31,33 +31,7 @@ namespace M226B_M120_Schulplaner
             subjectWindow.Show();
             this.Close();
         }
-        public class HomeWork
-        {
-            string subject;
-            string task;
-            DateTime date;
-            bool done;
-            public string Subject
-            {
-                get { return subject; }
-                set { subject = value; }
-            }
-            public string Task
-            {
-                get { return task; }
-                set { task = value; }
-            }
-            public DateTime Date
-            {
-                get { return date; }
-                set { date = value; }
-            }
-            public bool Done
-            {
-                get { return done; }
-                set { done = value; }
-            }
-        }
+        
 
         private void HomeWorkAdd_Click(object sender, RoutedEventArgs e)
         {
