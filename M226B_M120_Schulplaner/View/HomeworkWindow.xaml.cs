@@ -1,4 +1,5 @@
-﻿using System;
+﻿using M226B_M120_Schulplaner.Model;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace M226B_M120_Schulplaner
     /// </summary>
     public partial class HomeworkWindow : Window
     {
-        ObservableCollection<HomeWork> HomeWorkList = new ObservableCollection<HomeWork>();
+        ViewModel.HomeWorkClassViewModel homeWorkClass = new ViewModel.HomeWorkClassViewModel();
         public HomeworkWindow()
         {
             InitializeComponent();
@@ -32,17 +33,16 @@ namespace M226B_M120_Schulplaner
             this.Close();
         }
         
-
         private void HomeWorkAdd_Click(object sender, RoutedEventArgs e)
         {
-            HomeWork work = new HomeWork();
+            HomeWorkClass work = new HomeWorkClass();
             work.Subject = HomeWorkComboBox.Text;
             work.Task = HomeWorkTaskBox.Text;
             work.Date = Convert.ToDateTime(HomeWorkDateBox.Text);
             work.Done = false;
-            HomeWorkList.Add(work);
+            homeWorkClass.addToList(work);
             this.HomeWorkDataGrid.ItemsSource = null;
-            this.HomeWorkDataGrid.ItemsSource = HomeWorkList;
+            this.HomeWorkDataGrid.ItemsSource = homeWorkClass.getHomeWorkClassList();
         }
     }
 }

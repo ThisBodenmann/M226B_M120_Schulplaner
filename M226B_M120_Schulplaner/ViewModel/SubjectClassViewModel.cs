@@ -5,14 +5,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.ComponentModel;
+using M226B_M120_Schulplaner.Model;
 
 namespace M226B_M120_Schulplaner.ViewModel
 {
     class SubjectClassViewModel
     {
-        class SubjectViewModel
+        public List<SubjectClass> _SubjectClassList = new List<SubjectClass>();
+
+        public void addToList(SubjectClass subjectClass)
         {
-            _SubjectsList = new List<Subject>
+            _SubjectClassList.Add(subjectClass);
+        }
+
+        public List<SubjectClass> getSubjectClassList()
+        {
+            return _SubjectClassList;
+        }
+        public void setSubjectClassList(List<SubjectClass> value)
+        {
+            _SubjectClassList = value;
         }
     }
 }

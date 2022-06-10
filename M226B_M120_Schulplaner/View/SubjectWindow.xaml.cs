@@ -1,4 +1,5 @@
-﻿using System;
+﻿using M226B_M120_Schulplaner.Model;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -21,7 +22,8 @@ namespace M226B_M120_Schulplaner
     /// </summary>
     public partial class SubjectWindow : Window
     {
-        ObservableCollection<SubjectClass> SubjectList = new ObservableCollection<SubjectClass>();
+        ViewModel.SubjectClassViewModel subjectClass = new ViewModel.SubjectClassViewModel();
+
         public SubjectWindow()
         {
             InitializeComponent();
@@ -36,14 +38,14 @@ namespace M226B_M120_Schulplaner
 
         private void SubjectAdd_Click(object sender, RoutedEventArgs e)
         {
-            SubjectClass work = new SubjectClass();
-            work.Subject = SubjectComboBox.Text;
-            work.Theme = ThemeTextBox.Text;
-            work.Date = Convert.ToDateTime(DateTextBox.Text);
-            work.Grade = GradeTextBox.Text;
-            SubjectList.Add(work);
+            SubjectClass subject = new SubjectClass();
+            subject.Subject = SubjectComboBox.Text;
+            subject.Theme = ThemeTextBox.Text;
+            subject.Date = Convert.ToDateTime(DateTextBox.Text);
+            subject.Grade = GradeTextBox.Text;
+            subjectClass.addToList(subject);
             this.SubjectDataGrid.ItemsSource = null;
-            this.SubjectDataGrid.ItemsSource = SubjectList;
+            this.SubjectDataGrid.ItemsSource = subjectClass.getSubjectClassList();
         }
 
         private new void PreviewTextInput(object sender, TextCompositionEventArgs e)
