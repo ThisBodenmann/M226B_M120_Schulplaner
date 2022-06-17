@@ -38,6 +38,10 @@ namespace M226B_M120_Schulplaner.ViewModel
                     string json = r.ReadToEnd();
                     List<SubjectClass> items = JsonConvert.DeserializeObject<List<SubjectClass>>(json);
                     _SubjectClassList = items;
+                    if (items != null)
+                    {
+                        _SubjectClassList = items;
+                    }
                 }
             }
             else

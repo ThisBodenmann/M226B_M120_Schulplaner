@@ -40,7 +40,10 @@ namespace M226B_M120_Schulplaner.ViewModel
                 {
                     string json = r.ReadToEnd();
                     List<HomeWorkClass> items = JsonConvert.DeserializeObject<List<HomeWorkClass>>(json);
-                    _HomeWorkList = items;
+                    if (items != null)
+                    {
+                        _HomeWorkList = items;
+                    }
                 }
             }
             else
