@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,7 @@ namespace M226B_M120_Schulplaner
         public HomeworkWindow()
         {
             InitializeComponent();
+            ViewModel.HomeWorkClassViewModel.loadFromFile();
         }
         void changeWindowSubjects(object sender, RoutedEventArgs e)
         {

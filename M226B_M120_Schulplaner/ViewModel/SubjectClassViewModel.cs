@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.ComponentModel;
 using M226B_M120_Schulplaner.Model;
+using System.IO;
 
 namespace M226B_M120_Schulplaner.ViewModel
 {
@@ -16,6 +17,9 @@ namespace M226B_M120_Schulplaner.ViewModel
         public void addToList(SubjectClass subjectClass)
         {
             _SubjectClassList.Add(subjectClass);
+            string workingDirectory = Environment.CurrentDirectory;
+            string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
+            // File.WriteAllText(projectDirectory + "\"JSON\"savefile.json", json);
         }
 
         public List<SubjectClass> getSubjectClassList()
