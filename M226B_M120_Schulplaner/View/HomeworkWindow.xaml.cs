@@ -27,6 +27,8 @@ namespace M226B_M120_Schulplaner
         {
             InitializeComponent();
             ViewModel.HomeWorkClassViewModel.loadFromFile();
+            this.HomeWorkDataGrid.ItemsSource = null;
+            this.HomeWorkDataGrid.ItemsSource = homeWorkClass.getHomeWorkClassList();
         }
         void changeWindowSubjects(object sender, RoutedEventArgs e)
         {
@@ -38,6 +40,7 @@ namespace M226B_M120_Schulplaner
         private void HomeWorkAdd_Click(object sender, RoutedEventArgs e)
         {
             HomeWorkClass work = new HomeWorkClass();
+            work.Key = homeWorkClass.getKey();
             work.Subject = HomeWorkComboBox.Text;
             work.Task = HomeWorkTaskBox.Text;
             work.Date = Convert.ToDateTime(HomeWorkDateBox.Text);

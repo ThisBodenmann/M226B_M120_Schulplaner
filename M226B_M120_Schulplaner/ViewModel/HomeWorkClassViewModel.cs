@@ -1,5 +1,6 @@
 ﻿using M226B_M120_Schulplaner.Model;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,11 +16,12 @@ namespace M226B_M120_Schulplaner.ViewModel
         static string workingDirectory = Environment.CurrentDirectory;
         static string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
         static string realPath = projectDirectory + "\\JSON\\saveFileHomeWork.json";
-        public List<HomeWorkClass> _HomeWorkList = new List<HomeWorkClass>();
+        public static List<HomeWorkClass> _HomeWorkList = new List<HomeWorkClass>();
         public void addToList(HomeWorkClass HomeWorkClass)
         {
             _HomeWorkList.Add(HomeWorkClass);
-
+            var jsonString = JsonConvert.SerializeObject(_HomeWorkList);
+            File.WriteAllText(realPath, jsonString);
         }
 
         public List<HomeWorkClass> getHomeWorkClassList()
@@ -38,11 +40,19 @@ namespace M226B_M120_Schulplaner.ViewModel
                 {
                     string json = r.ReadToEnd();
                     List<HomeWorkClass> items = JsonConvert.DeserializeObject<List<HomeWorkClass>>(json);
+                    _HomeWorkList = items;
                 }
-            } else
+            }
+            else
             {
                 File.Create(realPath);
             }
+        }
+        public int getKey()
+        {
+            int key = 0;
+            key++;
+            return key;
         }
     }
 }

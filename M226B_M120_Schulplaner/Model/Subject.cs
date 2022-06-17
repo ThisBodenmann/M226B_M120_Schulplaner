@@ -10,10 +10,16 @@ namespace M226B_M120_Schulplaner.Model
 {
     public class SubjectClass : INotifyPropertyChanged
     {
+        int key;
         string subject;
         string theme;
         DateTime date;
         string grade;
+        public int Key
+        {
+            set { key = value; }
+            get { return key; }
+        }
         public string Subject
         {
             get { return subject; }

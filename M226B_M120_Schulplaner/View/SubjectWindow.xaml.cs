@@ -27,6 +27,9 @@ namespace M226B_M120_Schulplaner
         public SubjectWindow()
         {
             InitializeComponent();
+            ViewModel.SubjectClassViewModel.loadFromFile();
+            this.SubjectDataGrid.ItemsSource = null;
+            this.SubjectDataGrid.ItemsSource = subjectClass.getSubjectClassList();
         }
 
         private void changeWindowHomework(object sender, RoutedEventArgs e)
@@ -52,7 +55,7 @@ namespace M226B_M120_Schulplaner
         {
             e.Handled = !IsTextAllowed(e.Text);
         }
-        private static readonly Regex _regex = new Regex("^[0-9,.]*$");
+        private static readonly Regex _regex = new Regex("^[0-9,]*$");
         private static bool IsTextAllowed(string text)
         {
             return _regex.IsMatch(text);

@@ -8,10 +8,16 @@ namespace M226B_M120_Schulplaner.Model
 {
     public class HomeWorkClass
     {
+        int key;
         string subject;
         string task;
         DateTime date;
         bool done;
+        public int Key
+        {
+            set { key = value; }
+            get { return key; }
+        }
         public string Subject
         {
             get { return subject; }
