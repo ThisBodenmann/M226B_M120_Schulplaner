@@ -68,7 +68,7 @@
                 </TextBox>
                 <Label Grid.Row="1" Grid.Column="7">Note</Label>
                 <TextBox PreviewTextInput="PreviewTextInput" Grid.Row="2" Grid.Column="7" Name="GradeTextBox">
-                    5.1
+                    5,1
                 </TextBox>
                 <Button Grid.Row="2" Grid.Column="9" Click="SubjectAdd_Click">
                     Hinzufügen

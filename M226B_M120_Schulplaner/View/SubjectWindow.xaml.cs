@@ -38,14 +38,32 @@ namespace M226B_M120_Schulplaner
 
         private void SubjectAdd_Click(object sender, RoutedEventArgs e)
         {
-            SubjectClass subject = new SubjectClass();
-            subject.Subject = SubjectComboBox.Text;
-            subject.Theme = ThemeTextBox.Text;
-            subject.Date = Convert.ToDateTime(DateTextBox.Text);
-            subject.Grade = GradeTextBox.Text;
-            subjectClass.addToList(subject);
-            this.SubjectDataGrid.ItemsSource = null;
-            this.SubjectDataGrid.ItemsSource = subjectClass.getSubjectClassList();
+            try
+            {
+                if (GradeTextBox.Text.Contains('.'))
+                {
+                    MessageBox.Show("Geben Sie einen gültigen Wert ein");
+                } else
+                {
+                    if (Convert.ToDouble(GradeTextBox.Text) >= 1 && Convert.ToDouble(GradeTextBox.Text) <= 6)
+                    {
+                        SubjectClass subject = new SubjectClass();
+                        subject.Subject = SubjectComboBox.Text;
+                        subject.Theme = ThemeTextBox.Text;
+                        subject.Date = Convert.ToDateTime(DateTextBox.Text);
+                        subject.Grade = GradeTextBox.Text;
+                        subjectClass.addToList(subject);
+                        this.SubjectDataGrid.ItemsSource = null;
+                        this.SubjectDataGrid.ItemsSource = subjectClass.getSubjectClassList();
+                    }
+                    else MessageBox.Show("Die Note kann nur zwischen 1 und 6 sein.");
+                }
+            }
+            catch (Exception ex)
+            {
+                
+            }
+
         }
 
         private new void PreviewTextInput(object sender, TextCompositionEventArgs e)
